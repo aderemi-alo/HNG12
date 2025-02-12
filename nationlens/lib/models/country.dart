@@ -1,33 +1,34 @@
 class Country {
   final String name;
   final String capital;
-  final int population;
-  final String flag;
-  final List<String>? states;
-  final String countryCode;
+  final String? presidentName; // Nullable
+  final String phoneCode;
   final String continent;
-  final String? president;
+  final String population;
+  final String flagUrl;
+  final String statesUrl;
 
   Country({
     required this.name,
     required this.capital,
-    required this.population,
-    required this.flag,
-    this.states,
-    required this.countryCode,
+    this.presidentName, // Now nullable
+    required this.phoneCode,
     required this.continent,
-    this.president,
+    required this.population,
+    required this.flagUrl,
+    required this.statesUrl,
   });
 
-  factory Country.fromJson(Map<String, dynamic> json) => Country(
-        name: json['name'],
-        capital: json['capital'] ?? 'N/A',
-        population: json['population'] ?? 0,
-        flag: json['flag'],
-        states:
-            json['states'] != null ? List<String>.from(json['states']) : null,
-        countryCode: json['countryCode'],
-        continent: json['continent'],
-        president: json['president'],
-      );
+  factory Country.fromJson(Map<String, dynamic> json) {
+    return Country(
+      name: json['name'], // Default value
+      capital: json['capital'],
+      presidentName: json['current_president']?['name']?.toString(),
+      phoneCode: json['phone_code'].toString(), // Handle null
+      continent: json['continent'] ?? 'Unknown Continent',
+      population: json['population'].toString(),
+      flagUrl: json['href']['flag'].toString(),
+      statesUrl: json['href']['states'].toString(),
+    );
+  }
 }
