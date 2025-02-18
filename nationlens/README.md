@@ -43,15 +43,14 @@ NationLens is a feature-rich mobile application built with Flutter that provides
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/aderemi-alo/nationlens.git
-   cd nationlens
+   git clone https://github.com/aderemi-alo/HNG12.git
+   cd HNG12/nationlens
 2. **Install dependencies**
    ```bash
    flutter pub get
 3. **Run the app**
    ```bash
    flutter run
-
 ## Usage Guide
 ### Home Screen
 1. **Search**: Use the sarch bar to find countries by name
@@ -74,3 +73,9 @@ NationLens is a feature-rich mobile application built with Flutter that provides
 1. **Theme Selection**:
     - Tap the theme icon in the app bar
     - Choose between light/dark mode or system default
+
+## Dependencies
+- provider
+- http
+- intl
+- cached_network_image
